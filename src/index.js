@@ -4,9 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+ let nav = {"main":"/index","about":"/about","price":"/price"};
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    
+    <App title="My attribute" nav={nav}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
