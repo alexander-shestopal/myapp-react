@@ -1,5 +1,11 @@
 import React from 'react';
+import { BrowserRouter  as Router, Switch, Route, Link} from 'react-router-dom';
 import './App.css';
+
+import Home from './Home';
+import About from './About';
+import Contacts from './Contacts';
+import Error from './Error';
 
 
 class App extends React.Component {
@@ -18,21 +24,21 @@ class App extends React.Component {
     let b ={ name:'Ivan', lastname:'Ivanov'};
     let c = ['hello', 'Ivanov', 'Ivan','Ivanovich'];
    return (
+     <Router>
       <div className="ty">
-        <h1>{this.state.go}</h1>
-        <div>{Math.random()}</div>
-        <h2>{2+3}</h2>
-        <ul>
-          {c.map( elem => { return <li key={elem}>{elem}</li>})}
-        </ul>
-        <div>{this.test()/5}</div>
-        <div>{a}</div>
-        <div {...b}></div>
-        <hr/>
-        <p>{false}</p>
-        <hr/>
-        <input defaultValue="222"/>
+      <ul>
+            <li><a href='/'>Main page</a></li>
+        <li><a href='/about'>About</a></li>
+            <li><a href='/contacts'>Contacts</a></li>
+      </ul> 
+      <Switch>
+        <Route exact path='/' component={Home}></Route>
+        <Route exact path='/about' component={About}></Route>
+        <Route exact path='/contacts' component={Contacts}></Route>
+        <Route component={Error}></Route>
+      </Switch>
       </div>
+      </Router>
     );
   }
 }
