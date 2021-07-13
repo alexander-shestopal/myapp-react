@@ -1,18 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      "go": "gogogo",
+    }
+
+  }
+  test(){
+    return 111;
+  }
   render() {
+    let a = 44;
+    let b ={ name:'Ivan', lastname:'Ivanov'};
+    let c = ['hello', 'Ivanov', 'Ivan','Ivanovich'];
    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-        </header>
+      <div className="ty">
+        <h1>{this.state.go}</h1>
+        <div>{Math.random()}</div>
+        <h2>{2+3}</h2>
+        <ul>
+          {c.map( elem => { return <li key={elem}>{elem}</li>})}
+        </ul>
+        <div>{this.test()/5}</div>
+        <div>{a}</div>
+        <div {...b}></div>
+        <hr/>
+        <p>{false}</p>
+        <hr/>
+        <input defaultValue="222"/>
       </div>
     );
   }
